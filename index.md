@@ -1,37 +1,19 @@
-## Welcome to GitHub Pages
+## 欢迎来到导航页
 
-You can use the [editor on GitHub](https://github.com/caojiale233/math/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+#行列式工具
+[https://caojiale233.github.io/math/determinant/index.html]
+此页能基于行列式性质进行简单操作
+如两行（列）的加减法和取代数余子式
+也可以进行高阶行列式自动降阶
+前提是行列式中有±1存在
+三阶行列式则能直接暴力算出结果
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+#矩阵工具
+[https://caojiale233.github.io/math/matrix/index.html]
+界面中提供两个矩阵输入区域
+能够对任意一个矩阵进行转置、求伴随、求行列式操作
+对两个输入的矩阵进行加法和乘法
+暂时不支持矩阵初等变换
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/caojiale233/math/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+#源码传送门
+[https://github.com/caojiale233/math]
