@@ -1,8 +1,8 @@
 ## 欢迎来到导航页
 
-#行列式工具
+### 行列式工具
 
-[行列式工具传送门](https://caojiale233.github.io/math/determinant/index.html)
+[行列式工具传送门](https://caojiale233.github.io/MathTools/determinant/index.html)
 
 此页能基于行列式性质进行简单操作
 
@@ -17,9 +17,9 @@
 
 -----
 
-#矩阵工具
+### 矩阵工具
 
-[矩阵工具传送门](https://caojiale233.github.io/math/matrix/index.html)
+[矩阵工具传送门](https://caojiale233.github.io/MathTools/matrix/index.html)
 
 界面中提供两个矩阵输入区域
 
@@ -30,6 +30,6 @@
 暂时不支持矩阵初等变换
 
 
-#源码传送门
+### 源码传送门
 
-[https://github.com/caojiale233/math](https://github.com/caojiale233/math)
+[https://github.com/caojiale233/MathTools](https://github.com/caojiale233/MathTools)
