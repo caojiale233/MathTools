@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=720,inital-scale=1.0,user-scalable=no;">
+<link rel="stylesheet" type="text/css" href="style/0.css">
+<link rel="stylesheet" type="text/css" href="style/1.css">
+<html>
+<head><title>Matrix</title></head>
+<style>
+
+
+
+</style>
+<body>
+<table border="0">
+<tr>
+<td><strong>Matrix1</strong></td>
+<td><strong>Matrix2</strong></td>
+</tr>
+<tr>
+<td><div class="matrix" id="input1" contenteditable="true"></div></td>
+<td><div class="matrix" id="input2" contenteditable="true"></div></td>
+</tr>
+<!-------矩阵一期开始---------->
+<tr>
+<td><div id="ope11" data-md-bgColor="#2196f3" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input class="md_button" type="button" value="转置"></div></td>
+<td><div id="ope21" data-md-bgColor="#43A047" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input class="md_button" type="button" value="转置"></div></td>
+</tr>
+<tr>
+<td><div id="ope12" data-md-bgColor="#2196f3" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input class="md_button" type="button" value="伴随"></div></td>
+<td><div id="ope22" data-md-bgColor="#43A047" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input class="md_button" type="button" value="伴随"></div></td>
+</tr>
+<tr>
+<td colspan="2">
+<div id="hyperDeterminant" data-md-bgColor="#009688" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input class="md_button" type="button" value="高级"></div>
+<div id="ope13" data-md-bgColor="#2196f3" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input class="md_button" type="button" value="行列式"></div>
+<div id="ope23" data-md-bgColor="#43A047" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input class="md_button" type="button" value="行列式"></div></td>
+</tr>
+<tr>
+<td colspan="2">
+<div id="ope5" data-md-bgColor="#009688" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input class="md_button" type="button" value="相加"></div><br><br>
+<strong style="line-height:81px;font-size:24px;color:#009688">乘法</strong>
+<div id="ope14" data-md-bgColor="#2196f3" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input class="md_button" type="button" value="M¹M²"></div>
+<div id="ope24" data-md-bgColor="#43A047" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input class="md_button" type="button" value="M²M¹"></div>
+</td>
+</tr>
+<!-------矩阵一期结束---------->
+<tr>
+<td colspan="2" id="print"></td>
+</tr>
+<tr>
+<td colspan="2" style="color:#f44336" onclick="this.style.display='none'">示例:<br><div class="matrix">1 3<br>1 5</div><br>每行的每个元素用空格隔开，换行直接回车。<br>单击可隐藏提示，多余的空格与空白行会自动忽略。<br>请确保输入数据为矩阵</td>
+</tr>
+</table>
+<div id="JumpToTop" onclick="window.scrollTo(0,0);">
+<svg t="1575622490578" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2065" width="64" height="64"><path d="M450.67137048 237.03717324L450.67137048 237.03717324c16.07805352-15.93877002 38.42158158-25.25921197 61.25608633-25.25921198l0 0c22.98307446 0 45.25347746 9.31928157 61.40465603 25.25921198l419.6404603 419.78670931 0 0c33.87510834 33.86698358 33.87510834 88.86688158 0 122.73270479l0 0c-33.92966204 33.79385964-88.72063369 33.79385964-122.58645691 0L511.92745569 421.31149685 153.75665061 779.55658734l0 0c-34.01091076 33.7985022-88.79723985 33.7985022-122.73270481-0.14508752l0 0c-33.87278761-33.72189607-33.87278761-88.72179406 0-122.58761727L450.67137048 237.03717324 450.67137048 237.03717324zM450.67137048 237.03717324" p-id="2066" fill="#8a8a8a"></path></svg>
+</div>
+</body>
+<script src="js/0_0.js"></script>
+<script src="js/0_1.js"></script>
+<script src="js/1_0.js"></script>
+<script src="js/1_1.js"></script>
+<!--函数列表
+转置 transpose(a)
+伴随 adjoint(a)
+行列式 determinant(a)
+加法 add(a,b)
+最小值 min(a,b)
+乘法 multiply(a,b)
+-->
+<script>
+
+
+
+</script>
+</html>

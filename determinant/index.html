@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<link rel="shortcut icon" href="img/determinant.ico">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<meta name="viewport" content="width=720,inital-scale=1.0,user-scalable=no;">
+<head><title>EasyDeterminant</title></head>
+<style id="css">
+.num{
+width:calc(25vw / 3);
+height:calc(25vw / 3);
+font-size:calc(10vw / 3);
+line-height:calc(25vw / 3);
+}
+</style>
+<body align=center>
+<img style="width:100vw" src="img/background.jpeg">
+<div id="determinant">
+<table id="inputTable">
+<tr><td><input id="r1c1" data-next="1" type="number" class="num"></td><td><input id="r1c2" data-next="2" type="number" class="num"></td><td><input id="r1c3" data-next="3" type="number" class="num"></td></tr><tr><td><input id="r2c1" data-next="4" type="number" class="num"></td><td><input id="r2c2" data-next="5" type="number" class="num"></td><td><input id="r2c3" data-next="6" type="number" class="num"></td></tr><tr><td><input id="r3c1" data-next="7" type="number" class="num"></td><td><input id="r3c2" data-next="8" type="number" class="num"></td><td><input id="r3c3" data-next="9" type="number" class="num"></td></tr>
+</table>
+</div>
+<div id="dashboard">
+<div data-md-color="#4CAF50" class="md_range_1"><input id="rank" max="10" min="3" step="1" value="3" class="md_range_2" type="range" onmousedown="md_range_start(this.parentNode)" ontouchstart="md_range_start(this.parentNode)" onmouseup="md_range_end(this.parentNode)" ontouchend="md_range_end(this.parentNode)" ontouchmove="md_range_change(this.parentNode,(this.value-this.min)/(this.max-this.min)*100,this.value)" onmousemove="md_range_change(this.parentNode,(this.value-this.min)/(this.max-this.min)*100,this.value)" onchange="md_range_change(this.parentNode,(this.value-this.min)/(this.max-this.min)*100,this.value)" ><div class="md_range_3"><div class="md_range_4"><div class="md_range_6"></div></div><div class="md_range_5"><div class="md_range_7 md_ripple"></div><div class="md_range_8">5</div></div></div></div>
+<div style="transform:scale(0.7)" data-md-bgColor="#f44336" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input onclick="changeRank($('#rank').value)" class="md_button" type="button" value="调整阶数"></div>
+<span style="font-size:5vw;margin-right:5vw;">r<sub><input id="r1" type="number"></sub><input id="r2" type="number">r<sub><input id="r3" type="number"></sub></span>
+<span style="font-size:5vw;">c<sub><input id="c1" type="number"></sub><input id="c2" type="number">c<sub><input id="c3" type="number"></sub></span><br><br>
+<span style="font-size:5vw;">A&nbsp;<sub><input id="A1" type="number">&nbsp;<input id="A2" type="number"></sub></span>
+<div style="transform:scale(0.7)" data-md-bgColor="#4CAF50" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input onclick="answer()" class="md_button" type="button" value="3阶暴力求解"></div>
+<div style="transform:scale(0.7)" data-md-bgColor="#4CAF50" data-md-fontColor="#ffffff" class="md_button_bg" onclick="md_button_change(this.querySelector('.md_button_ripple').style)"><div class="md_button_rippleBox"><div class="md_button_ripple"></div></div><input onclick="auto()" class="md_button" type="button" value="自动求解"></div>
+</div>
+<div id="answer">
+</div>
+<div id="switch"><svg t="1569849892530" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4324" width="200" height="200"><path d="M866.66998 632.39905H156.437201c-12.16152 0-24.32304 4.864608-31.619952 14.593824-4.864608 7.296912-4.864608 19.458432 2.432304 26.755345l355.116389 340.522565c7.296912 7.296912 17.026128 9.729216 26.755345 9.729216s21.890736-4.864608 26.755344-9.729216l355.11639-340.522565c4.864608-4.864608 7.296912-9.729216 7.296912-14.593825 2.432304-14.593824-12.16152-26.755344-31.619953-26.755344zM511.553591 955.895487L226.974018 683.477435h569.159145L511.553591 955.895487zM893.425325 350.251781L538.308935 9.729216C533.444327 4.864608 521.282807 0 511.553591 0s-21.890736 4.864608-26.755345 9.729216L129.681857 350.251781c-7.296912 7.296912-9.729216 17.026128-2.432304 26.755345 4.864608 7.296912 17.026128 12.16152 29.187648 12.16152h707.800475c19.458432 0 34.052257-12.16152 34.052257-24.32304 2.432304-4.864608 0-12.16152-4.864608-14.593825zM876.399197 486.460808H146.707985c-14.593824 0-24.32304 9.729216-24.32304 24.32304s9.729216 24.32304 24.32304 24.32304h729.691212c14.593824 0 24.32304-9.729216 24.32304-24.32304s-9.729216-24.32304-24.32304-24.32304z" p-id="4325"></path></svg></div>
+<div id="io"><svg t="1570447425206" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3951" width="48" height="48"><path d="M511.4 546.3c28.2-17.9 74.5-36.6 100.5-13.8 18.8 16.6 38.5 32.7 58.2 48.4 14.8 12.1 26.4 11.2 40.3-2.2 52.8-51.5 71.8-89.6 73.6-171.1-1.3-9.9-2.2-28.2-5.8-45.7-30.5-142-163.5-230.7-307.3-206C350 176.5 256.3 285.3 254.1 407.2c-2.2 125 74.1 228.8 195.5 260.6 11.2 3.1 21.5 2.2 29.6-6.7 8.5-9 8.5-18.8 4.5-30-11.7-33.2-0.1-66.8 27.7-84.8z m-74.4 9.9c-3.1 7.6-5.8 15.7-7.6 23.7-1.8 7.6-2.7 15.2-4 23.3-53.3-18.4-117.1-85.9-119.8-181.7-2.7-97.2 61.4-184.1 156.3-210.1 95-26.4 196.2 16.1 243.7 102.6 47 86 32.1 159.9-20.7 214.6-13.9-12.1-28.2-24.6-42.6-37.2-62.2-54.7-171.7-10.4-205.3 64.8zM289.5 758.3c-24.6 0-44.8 18.8-44.8 43.4-0.4 24.2 19.3 43.9 43.9 43.9 24.2 0 43.9-19.7 44.3-43.9 0-23.7-19.2-42.9-43.4-43.4z" fill="#515151" p-id="3952"></path><path d="M517.5 345.5c-24.2 0.4-43.4 20.2-43.4 43.9 0.4 24.2 20.6 43.9 44.8 43.9 24.2 0 44.3-20.6 43.9-44.8s-20.7-43.5-45.3-43zM662.2 790c-6.6 0-12.8 2.7-17.4 7.7l-49.4 54.1-19 22V636.6c0-14.2-10.9-25.8-24.3-25.8s-23.4 10.7-23.4 24.9l0.4 163.1 1.3 55.3v18.5l-71-75c-4.6-4.9-10.7-7.6-17.2-7.6s-12.6 2.7-17.3 7.6c-4.6 4.8-7.1 11.3-7.1 18.2 0 7 2.5 13.5 7.1 18.2l105.5 110.8c1.6 3 3.8 5.7 6.2 7.6 4.4 3.8 9.7 5.8 15.4 5.8 5.8 0 10.6-2 17.4-7.6 2.8-2.9 4.1-5 4.5-6.4L679.4 834c4.6-4.8 7.1-11.3 7.1-18.2 0-6.9-2.5-13.4-7.1-18.2-4.6-4.9-10.7-7.6-17.2-7.6z" fill="#515151" p-id="3953"></path><path d="M903.1 718L797.7 607.7c-2.1-4.2-5.2-7.7-9-10-3.4-2.6-7.7-4-12.8-4-5.8 0-10.8 2.1-17.4 7.6-2.8 2.9-4 5-4.5 6.5L648.7 718c-4.6 4.8-7.1 11.3-7.1 18.2 0 6.9 2.5 13.4 7 18.1 4.6 4.9 10.7 7.7 17.3 7.7 6.6 0 12.7-2.7 17.4-7.7l49.2-54 19.1-22v239.9c0 14.2 10.9 25.8 24.4 25.8 13.1 0 22.6-10.8 22.6-25.8l0.3-164.6-1.3-55.2v-18.9l70.9 74.9c4.6 4.9 10.8 7.6 17.3 7.6s12.7-2.7 17.2-7.5c4.6-4.9 7.2-11.3 7.2-18.3s-2.5-13.4-7.1-18.2z" fill="#515151" p-id="3954"></path><path d="M234.4 907.9c-43.4 0-69-25.5-69-69V184.5c0-43 25.1-68.5 68.1-68.5h537.9c42.5 0 68.1 25.5 68.1 67.6v372h52.4V168.4c-0.9-4.5-1.8-9.4-3.1-13.9-11.6-52.9-55.5-89.6-109.7-90-91.4-0.9-183.2-0.4-275-0.4-90.9 0-182.3-0.4-273.2 0-57.8 0.4-103 36.3-114.2 90.9-2.2 9.9-2.7 20.2-2.7 30v654.4c0 71.7 48.8 120.5 120.5 120.5h194.1v-52H234.4z" fill="#515151" p-id="3955"></path></svg></div>
+<a href="javascript:void(0)" onclick="window.open('../matrix/index.html')"><div id="matrix"><svg t="1575450610851" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2078" width="64" height="64"><path d="M243.2 288H108.8c-25.6 0-44.8-19.2-44.8-44.8V108.8c0-25.6 19.2-44.8 44.8-44.8h134.4c25.6 0 44.8 19.2 44.8 44.8v134.4c0 25.6-19.2 44.8-44.8 44.8zM582.4 288H448c-25.6 0-44.8-19.2-44.8-44.8V108.8c0-25.6 19.2-44.8 44.8-44.8h134.4c25.6 0 44.8 19.2 44.8 44.8v134.4c0 25.6-19.2 44.8-44.8 44.8zM915.2 288h-134.4c-25.6 0-44.8-19.2-44.8-44.8V108.8c0-25.6 19.2-44.8 44.8-44.8h134.4c25.6 0 44.8 19.2 44.8 44.8v134.4c0 25.6-19.2 44.8-44.8 44.8z" fill="" p-id="2079"></path><path d="M243.2 627.2H102.4c-25.6 0-44.8-19.2-44.8-44.8V448c0-25.6 19.2-44.8 44.8-44.8h134.4c25.6 0 44.8 19.2 44.8 44.8v134.4c6.4 25.6-19.2 44.8-38.4 44.8zM576 627.2H441.6c-25.6 0-44.8-19.2-44.8-44.8V448c0-25.6 19.2-44.8 44.8-44.8H576c25.6 0 44.8 19.2 44.8 44.8v134.4c0 25.6-19.2 44.8-44.8 44.8zM915.2 627.2h-134.4c-25.6 0-44.8-19.2-44.8-44.8V448c0-25.6 19.2-44.8 44.8-44.8h134.4c19.2 0 44.8 19.2 44.8 44.8v134.4c0 25.6-25.6 44.8-44.8 44.8z" fill="" p-id="2080"></path><path d="M243.2 960H108.8c-25.6 0-44.8-19.2-44.8-44.8v-134.4c0-25.6 19.2-44.8 44.8-44.8h134.4c25.6 0 44.8 19.2 44.8 44.8v134.4c0 25.6-19.2 44.8-44.8 44.8zM582.4 960H448c-25.6 0-44.8-19.2-44.8-44.8v-134.4c0-25.6 19.2-44.8 44.8-44.8h134.4c25.6 0 44.8 19.2 44.8 44.8v134.4c0 25.6-19.2 44.8-44.8 44.8zM915.2 960h-134.4c-25.6 0-44.8-19.2-44.8-44.8v-134.4c0-25.6 19.2-44.8 44.8-44.8h134.4c25.6 0 44.8 19.2 44.8 44.8v134.4c0 25.6-19.2 44.8-44.8 44.8z" fill="" p-id="2081"></path></svg></div></a>
+</body>
+<script src="js/md.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/log.js"></script>
+<script>
+/***全局变量***/
+var rank=3,result=[],arr=[];
+/***调试函数***//*
+onerror=function (msg){
+log(arr);
+log(msg+"<br>");
+}*/
+/*自动计算*/
+function auto(){
+if(rank==3){
+answer();
+return false;
+}
+var cache=[-1,-1];
+/*自动找±1*/
+for(var i=0;i<rank;i++)
+if(arr[i][0]==-1||arr[i][0]==1){cache[0]=i;cache[1]=0;break;}
+if(cache[0]<0)
+for(var i=0;i<rank;i++)
+if(arr[0][i]==-1||arr[0][i]==1){cache[0]=0;cache[1]=i;break;}
+if(cache[0]<0)
+for(var i=0;i<rank;i++)
+for(var j=0;j<rank;j++)
+if(arr[i][j]==-1||arr[i][j]==1){cache[0]=i;cache[1]=j;break;}
+if(cache[0]<0)
+alert("自动计算需要行列式中含有±1，请手动凑出任意一个+1或-1即可继续");
+/*消除同列其他元素*/
+for(var i=0;i<rank;i++)
+if(i!=cache[0]&&arr[i][cache[1]]!=0){
+row(i+1,cache[0]+1,(-arr[i][cache[1]]/arr[cache[0]][cache[1]]));
+}
+A(cache[0]+1,cache[1]+1);
+}
+$("#io").on("click", function (){
+if(confirm("点击确认输入数据\n点击取消输出数据")){
+var cache=strTOmatrix(prompt("请输入数据"));
+if(cache){
+changeRank(cache.length);
+for(var i=1;i<=cache.length;i++)
+for(var j=1;j<=cache.length;j++)
+$("#r"+i+"c"+j).value=cache[i-1][j-1];
+arr=cache;
+}
+}else{
+printArr();
+}
+});
+//转换成行列式
+function strTOmatrix(a){
+var b=a.split("\n"),c=0,d=new Array;
+for(var i=b.length-1;i>=0;i--){
+b[i]=b[i].split(" ");
+for(var j=0;j<b[i].length;j++)
+b[i][j]=parseInt(b[i][j]);
+if(isNaN(b[i][0])){b.splice(i,1);}else{c+=b[i].length;}
+}
+if(c!=b.length*b[0].length){
+alert("输入数据非法\n请检查数据");
+console.log("输入数据非法，请检查数据");
+return 0;
+}
+return b;
+}
+</script>
+<script src="js/data.js"></script>
+<script src="js/calculate.js"></script>
+</html>

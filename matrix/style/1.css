@@ -1,0 +1,25 @@
+.md_button_bg{
+transform:scale(0.5);
+margin:0 auto;
+margin-bottom:-32px;
+}
+#ope14{
+float:left;
+margin-left:8vw;
+}
+#ope24{
+float:right;
+margin-right:8vw;
+}
+
+#ope13{
+float:left;
+margin-left:8vw;
+}
+#ope23{
+float:right;
+margin-right:8vw;
+}
+#hyperDeterminant{
+margin-bottom:-72px;
+}

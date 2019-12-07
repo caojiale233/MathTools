@@ -1,0 +1,170 @@
+body{margin:0;}
+#determinant{
+position:fixed;
+top:5vw;
+left:20vw;
+width:50vw;
+padding:5vw;
+height:50vw;
+background:rgba(255,255,255,0.85);
+box-shadow:0px 2px 15px rgba(0,0,0,0.5);
+border-radius:5px;
+}
+#inputTable{
+width:50vw;
+height:50vw;
+}
+table{
+margin:0;
+padding:0;
+border:2px solid;
+border-top:0;
+border-bottom:0;
+border-spacing:0;
+}
+td{
+padding:0;
+margin:0;
+text-align:center;
+}
+.output{
+margin:0.5vw;
+font-size:3vw;
+padding:1vw;
+font-size:mono;
+border:1px solid;
+border-top:0;
+border-bottom:0;
+padding-top:0;
+padding-bottom:0;
+white-space:nowrap;
+}
+@font-face {font-family: 'mono';
+src: url('DroidSansMono.ttf');  
+}
+.num{
+border:0.5px solid;
+text-align:center;
+outline-color:#f44336;
+background:rgba(255,255,255,0.3);
+}
+.equal_1{
+font-size:3vw;
+line-height:4vw;
+height:6vw;
+border-bottom:2px solid;
+float:left;
+margin-left:1vw;
+margin-right:1vw;
+margin-bottom:4vw;
+}
+.equal_2{
+border-bottom:2px solid;
+padding-left:2vw;
+padding-right:2vw;
+}
+#answer{
+background:#fff;
+position:fixed;
+bottom:0;
+left:0vw;
+overflow:auto;
+overflow-y:hidden;
+width:100vw;
+display:flex;
+display:-webkit-flex;
+flex-wrap: nowrap;
+justify-content: flex-start;
+align-items: center;
+padding-top:3vw;
+padding-bottom:3vw;
+box-shadow:0px 2px 15px rgba(0,0,0,0.5);
+border-top-left-radius:1.5vw;
+border-top-right-radius:1.5vw;
+}
+#A1,#A2,#r1,#r2,#r3,#c1,#c2,#c3{
+width:4vw;
+height:4vw;
+font-size:3vw;
+text-align:center;
+outline-color:#2196f3;
+}
+.md_ripple{position:relative;width:200%;height:200%;left:-50%;top:-50%;background:#000000;opacity:0;border-radius:100%;transition:background 0.2s,opacity 0.2s;}
+.md_range_1{height:64px;width:calc(90% - 200px);margin:5%;float:left;}
+.md_range_2{width:calc(100% - 32px);height:100%;position:relative;z-index:1;opacity:0;margin:0;padding:0;}
+.md_range_3{width:calc(100% - 32px);height:100%;position:relative;top:calc(-100% - 4px);left:16px;}
+.md_range_4{width:100%;height:6px;background:#e1e1e1;position:relative;top:29px;overflow:hidden;}
+.md_range_5{width:32px;height:32px;position:relative;top:10px;background:#ffffff;border-radius:16px;box-shadow:1px 1px 10px 2px rgba(0,0,0,0.53);margin-left:-16px;}
+.md_range_6{position:relative;left:-100%;width:100%;height:100%;background:#ffffff;opacity:0.44;}
+.md_range_7{width:300%;height:300%;left:-100%;top:-100%;}
+.md_range_8{display:none;position:relative;top:-600%;left:-25%;width:150%;height:150%;border-radius:100%;background:#ffffff;line-height:48px;;font-size:20px;color:#ffffff;text-align:center;box-shadow:1px 1px 10px 1px rgba(0,0,0,0.27);}
+.md_button{position:relative;left:0;top:-72px;background:rgba(0,0,0,0);color:inherit;line-height:72px;border:0;outline:none;font-size:20px;width:100%;height:100%;}
+.md_button_bg{width:124px;height:72px;margin:0 auto;margin-top:32px;margin-bottom:32px;padding:0;padding-left:32px;padding-right:32px;box-shadow:0 4px 6px 1px rgba(0,0,0,.37);border-radius:4px;overflow:hidden;}
+.md_button_ripple{position:relative;left:50%;top:50%;border-radius:100px;width:0;height:0;background:rgba(0,0,0,0.14);transition:top 0.2s,left 0.2s,width 0.2s,height 0.2s;}
+.md_button_rippleBox{width:100%;height:100%;}
+
+
+#dashboard{
+position:fixed;
+width:80vw;
+top:70vw;
+left:10vw;
+background:#fff;
+box-shadow:0px 2px 15px rgba(0,0,0,0.5);
+border-radius:5px;
+}
+
+#switch{
+position:fixed;
+width:8vw;
+height:8vw;
+top:5vw;
+right:0;
+background:rgba(255,255,255,0.8);
+border-top-left-radius:1.5vw;
+border-bottom-left-radius:1.5vw;
+box-shadow:-1px 0 15px rgba(0,0,0,0.5);
+}
+#switch svg{
+width:60%;
+height:60%;
+padding:20%;
+transform:rotate(180deg);
+transition:transform 0.3s;
+}
+#io{
+position:fixed;
+width:8vw;
+height:8vw;
+top:15vw;
+right:0;
+background:rgba(255,255,255,0.8);
+border-top-left-radius:1.5vw;
+border-bottom-left-radius:1.5vw;
+box-shadow:-1px 0 15px rgba(0,0,0,0.5);
+}
+#io svg{
+width:60%;
+height:60%;
+padding:20%;
+transform:rotate(180deg);
+transition:transform 0.3s;
+}
+#matrix{
+position:fixed;
+width:8vw;
+height:8vw;
+top:25vw;
+right:0;
+background:rgba(255,255,255,0.8);
+border-top-left-radius:1.5vw;
+border-bottom-left-radius:1.5vw;
+box-shadow:-1px 0 15px rgba(0,0,0,0.5);
+}
+#matrix svg{
+width:60%;
+height:60%;
+padding:20%;
+transform:rotate(180deg);
+transition:transform 0.3s;
+}
