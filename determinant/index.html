@@ -39,6 +39,10 @@ line-height:calc(25vw / 3);
 <script src="js/custom.js"></script>
 <script src="js/log.js"></script>
 <script>
+ /***背景图惰性加载***/
+ window.onload=function(){
+ $("#bg").src="img/background.jpeg";
+ }
 /***全局变量***/
 var rank=3,result=[],arr=[];
 /***调试函数***//*
