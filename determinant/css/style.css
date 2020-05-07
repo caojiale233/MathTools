@@ -31,7 +31,7 @@ text-align:center;
 margin:0.5vw;
 font-size:3vw;
 padding:1vw;
-font-size:mono;
+font-family:mono;
 border:1px solid;
 border-top:0;
 border-bottom:0;
@@ -40,7 +40,7 @@ padding-bottom:0;
 white-space:nowrap;
 }
 @font-face {font-family: 'mono';
-src: url('DroidSansMono.ttf');  
+src: url('DroidSansMono.otf');  
 }
 .num{
 border:0.5px solid;
