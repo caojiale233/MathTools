@@ -15,8 +15,9 @@ font-size:4vw;
 outline:none;
 }
 @font-face {font-family: 'mono';
-src: url('DroidSansMono.ttf');  
+src: url('DroidSansMono.otf');  
 }
+.mono{font-family:mono;}
 table{
 width:100%;
 text-align:center;
