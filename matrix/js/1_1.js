@@ -71,3 +71,60 @@ for(var f=0;f<b.length;f++)
 c[d][e]+=a[d][f]*b[f][e];
 }}return c;
 }
+//范数
+function max(a){var b=a[0];for(var i=1;i<a.length;i++)b=a[i]>b?a[i]:b; return b;}
+/*Frobenius范数*/
+function normF(a){
+	if(a.length!=a[0].length)return 0;
+	var b=0;
+	for(var i=0;i<a.length;i++)
+		for(var j=0;j<a.length;j++)
+			b+=Math.pow(Math.abs(a[i][j]),2);
+	return Math.sqrt(b);
+}
+/*行和范数*/
+function norm00(a){
+	if(a.length!=a[0].length)return 0;
+	var b=new Array(a.length);
+	for(var i=0;i<a.length;i++){
+		b[i]=0;
+		for(var j=0;j<a.length;j++)
+			b[i]+=Math.abs(a[i][j]);
+	}
+	return max(b);
+}
+/*列和范数*/
+function norm1(a){
+	if(a.length!=a[0].length)return 0;
+	var b=new Array(a.length);
+	for(var i=0;i<a.length;i++){
+		b[i]=0;
+		for(var j=0;j<a.length;j++)
+			b[i]+=Math.abs(a[j][i]);
+	}
+	return max(b);
+}
+/*谱范数*/
+function norm2(a){
+	if(a.length!=a[0].length)return 0;
+	a=multiply(transpose(a),a);
+	switch(a.length){
+		case 1:
+		return Math.sqrt(a[0][0]);
+		break;
+		case 2:
+		return Math.sqrt((a[0][0]+a[1][1]+Math.sqrt(Math.pow(a[0][0],2)+Math.pow(a[1][1],2)-2*a[0][0]*a[1][1]+4*a[0][1]*a[1][0]))/2);
+		break;
+		/*case 3:
+		return Math.sqrt(max(cubicEquation(-1,a[0][0]+a[1][1]+a[2][2],a[0][2]*a[2][0]+a[1][2]*a[2][1]+a[0][1]*a[1][0]-a[0][0]*a[2][2]-a[1][1]*a[2][2]-a[0][0]*a[1][1],determinant(a))));
+		break;*/
+		default:
+		return "方阵阶数不在支持范围内";
+		break;
+	}
+}
+/*一元三次方程*/
+function cubicEquation(a,b,c,d){
+	
+	return [a,b,c,d];
+}
